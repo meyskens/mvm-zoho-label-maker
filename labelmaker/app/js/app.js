@@ -37,7 +37,7 @@ function makeKaartjeVoeding() {
 	const doc = new jsPDF({
 		orientation: 'landscape',
 		unit: 'mm',
-		format: [ 85.60,  53.98 ] // ISO Credit Card
+		format: 'credit-card',
 	})
 	doc.text(mvmNumber, 10, 10)
 	doc.text(name, 10, 20)
@@ -50,7 +50,7 @@ function makeKaartjeMateriaal() {
 	const doc = new jsPDF({
 		orientation: 'landscape',
 		unit: 'mm',
-		format: [ 85.60,  53.98 ] // ISO Credit Card
+		format: 'credit-card',
 	})
 	doc.text(mvmNumber, 10, 10)
 	doc.text(name, 10, 20)
