@@ -115,3 +115,42 @@ function makeFicheZeephuisje() {
 
 	doc.save(`${mvmNumber}-zeephuisje.pdf`);
 }
+
+function maakFicheOnthaal() {
+	const doc = new jsPDF({
+		orientation: 'landscape',
+		unit: 'mm',
+		format: 'a4',
+	});
+
+	doc.addImage(onthaalFiche1, 'PNG', 0, 0, 297, 210);
+
+	doc.text(mvmNumber, 237, 20);
+	doc.text(lastName, 48, 33);
+	doc.text(firstName, 143, 33);
+	doc.text(code, 158, 44);
+
+	const defSize = doc.internal.getFontSize()
+
+	let x = 23;
+	let y = 62;
+	let c = 0
+	for (let contact of contacts) {
+		c++;
+		doc.setFontSize(defSize * 0.7)
+		doc.text(contact.name, x, y);
+		doc.text(contact.gender, x + 68, y);
+		doc.text(contact.birthDate, x + 84, y);
+		y += 6;
+		if (c == 6) {
+			y = 62;
+			x = 156;
+		}
+	}
+	doc.setFontSize(defSize)
+
+	doc.addPage('a4', 'landscape')
+	doc.addImage(onthaalFiche2, 'PNG', 0, 0, 297, 210);
+
+	doc.save(`${mvmNumber}-onthaal.pdf`);
+}
