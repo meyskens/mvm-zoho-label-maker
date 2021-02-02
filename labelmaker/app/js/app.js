@@ -61,12 +61,12 @@ function initializeWidget()
 
 function makeKaartje() {
 	sendPrint({
-		mvmNummer,
-		naam,
+		mvmNummer: mvmNumber,
+		naam: naam,
 		volwassenen: numVolw,
 		kinderen: numKind,
 		voeding: typeVoeding,
-		dag:dag,
+		dag: dag,
 	}).then((resp)=> {
 		alert("Print verzonden!")
 		$("#bericht").val("")
@@ -75,7 +75,6 @@ function makeKaartje() {
 }
 
 async function sendPrint(data) {
-	// TODO: change printer FQDN
 	const response = await fetch("https://label.print.mvm.digital/print", {
 	  method: 'POST',
 	  mode: 'cors',
