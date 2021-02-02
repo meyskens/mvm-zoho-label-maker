@@ -60,18 +60,6 @@ function initializeWidget()
 }
 
 function makeKaartje() {
-	fetch()
-	const doc = new jsPDF({
-		orientation: 'landscape',
-		unit: 'mm',
-		format: 'credit-card',
-	})
-	doc.text(mvmNumber, 10, 10)
-	doc.text(name, 10, 20)
-	doc.text(`${numVolw}V + ${numKind}K`, 10, 30)
-	doc.text(code, 10, 40)
-	doc.save(`${mvmNumber}-voeding.pdf`)
-
 	sendPrint({
 		mvmNummer,
 		naam,
