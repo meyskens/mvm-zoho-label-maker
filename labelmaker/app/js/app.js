@@ -83,7 +83,7 @@ function makeKaartje() {
 
 function makeLidkaart() {
   sendPrint("lid", {
-    mvmNummer,
+    mvmNummer: mvmNumber,
     naam,
     einddatum,
   }).then(
